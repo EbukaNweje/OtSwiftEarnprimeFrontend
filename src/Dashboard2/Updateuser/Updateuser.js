@@ -16,7 +16,7 @@ const UpdateUser = ({Display}) => {
   // console.log(depositWalletbalance, interestWalletbalance, 
   //   totalWithdraw, totalInvest, totalDeposit, lastWithdrawal, ref,)
 
-    const url = `https://swiftearnprime.onrender.com/api/alluserdata`
+    const url = `https://ot-swift-earnprime-back-end.vercel.app/api/alluserdata`
   
     useEffect(()=>{
       Axios.get(url).then(res => setData(res.data.data))
@@ -72,7 +72,7 @@ const UpdateUser = ({Display}) => {
 
       const updatedata = {accountBalance, totalProfit,  bonus, totalDeposit, totalWithdrawal, totalInvestment, ref,};
       const updateprofile = (id) => {
-        const updateuserurl = `https://swiftearnprime.vercel.app/api/userdata/${id}`
+        const updateuserurl = `https://ot-swift-earnprime-back-end.vercel.app/api/userdata/${id}`
           console.log(updateuserurl)
         Axios.patch(updateuserurl, updatedata)
         .then(res => {
