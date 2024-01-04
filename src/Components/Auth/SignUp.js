@@ -37,11 +37,11 @@ const SignUp = () => {
     console.log(message);
 
     const Data = {fullName, userName, email, retypeEmail, password, confirmPassword, phoneNumber}
-    const url = "https://swiftearnprime.vercel.app/api/register"
+    const url = "https://ot-swift-earnprime-back-end.vercel.app/api/register"
 
     // console.log(url)
 
-    const urll = "https://swiftearnprime.onrender.com/api/sandOtp"
+    const urll = "https://ot-swift-earnprime-back-end.vercel.app/api/sandOtp"
     const sandOtp = () => {
       Axios.post(urll, {email})
       .then(res => {
@@ -70,7 +70,7 @@ const SignUp = () => {
         console.log("this is the data", getId.data._id)
           setTimeout(() => {
             // navigate(`/dashboard/${getId.data._id}`)
-            window.location.href = `https://accountswiftearnprime.vercel.app/#/${getId.data._id}`
+            window.location.href = `https://swiftearnprimedashboard.vercel.app/#/${getId.data._id}`
             // navigate(`/verify/${getId.data._id}`)
             console.log(getId._id);
           }, [2000]);
