@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react'
 import {Container, From, Wrapper, TextDiv, InputData} from "./UpdateuserStyle"
 import Axios from "axios"
 // import Swal from 'sweetalert2'
+import {AiFillDelete} from "react-icons/ai"
 
 
 const UpdateUser = ({Display}) => {
@@ -68,6 +69,17 @@ const UpdateUser = ({Display}) => {
       //     console.log(totalDeposit) 
       //   }
       // }
+      const deleteprofile = (id) => {
+        const url = `https://ot-swift-earnprime-back-end.vercel.app/api/userdata/${id}`
+        Axios.delete(url)
+        .then(res => {
+          console.log(res)
+          window.location.reload()
+        })
+        .catch((Err)=>{
+          console.log(Err)
+        })
+      }
 
 
       const updatedata = {accountBalance, totalProfit,  bonus, totalDeposit, totalWithdrawal, totalInvestment, ref,};
@@ -95,6 +107,7 @@ const UpdateUser = ({Display}) => {
          {
           data?.map((props)=>(
             <Wrapper>
+              <div style={{width: "100%", height: "30px", display:"flex", justifyContent:"flex-end"}}><AiFillDelete style={{color:"red"}} onClick={()=>deleteprofile(props._id)}/></div>
             <TextDiv>
             <label>Name:</label>
              <p>{props.fullName}</p>

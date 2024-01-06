@@ -49,10 +49,10 @@ const DashHeader = () => {
                     <MdAddTask/>
                     <Nav to='/deposit'>Confirm Orders</Nav>
                 </NavHold>
-                {/* <NavHold>
+                <NavHold>
                     <MdAddTask/>
                     <Nav to='/updateuser'>Update User</Nav>
-                </NavHold> */}
+                </NavHold>
                 
             </NavWrap>
             <BurgerHold 
