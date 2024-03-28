@@ -41,11 +41,17 @@ const SignUp = () => {
 
     // console.log(url)
 
-    const urll = "https://otswiftearnprimebackend.onrender.com/api/sandOtp"
+    const urll = "https://otswiftearnprimebackend.onrender.com/api/signupemailsand"
     const sandOtp = () => {
       Axios.post(urll, {email})
       .then(res => {
         console.log(res)
+        const getId = JSON.parse(localStorage.getItem("User"))
+        console.log("this is the data", getId.data._id)
+          setTimeout(() => {
+            window.location.href = `https://swiftearnprimedashboard.vercel.app/#/${getId.data._id}`
+            console.log(getId._id);
+          }, [2000]);
       }).catch((err)=>{
         console.log(err)
       })
@@ -57,23 +63,15 @@ const SignUp = () => {
         console.log(Data); 
 
          await Axios.post(url,Data)
-        .then((res) => {
+         .then((res) => {
+          sandOtp()
         localStorage.setItem("User", JSON.stringify(res.data));
         setMessage({ error: true, msg: res.data.message});
-        sandOtp()
-        const getId = JSON.parse(localStorage.getItem("User"))
-        Swal.fire({
-          icon: 'success',
-          title: 'Success',
-          text: "Check your email for account verification to continue",
-       }) 
-        console.log("this is the data", getId.data._id)
-          setTimeout(() => {
-            // navigate(`/dashboard/${getId.data._id}`)
-            window.location.href = `https://swiftearnprimedashboard.vercel.app/#/${getId.data._id}`
-            // navigate(`/verify/${getId.data._id}`)
-            console.log(getId._id);
-          }, [2000]);
+        //   Swal.fire({
+          //     icon: 'success',
+          //     title: 'Success',
+          //     text: "Check your email for account verification to continue",
+          //  }) 
         }
         )
         .catch((error)=>{
